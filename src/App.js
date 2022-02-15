@@ -1,12 +1,16 @@
-
-import './App.css';
-import Converter from './Components/converter';
-import Exchange from './Components/exchange';
+import "./App.css";
+import Converter from "./Components/converter/converter";
+import Exchange from "./Components/exchange/exchange";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Converter />,
-    <Exchange />
+<Router>
+      <Routes>
+        <Route path="/" element={<Converter />} />
+        <Route path="/exchange" element={<Exchange />} />
+      </Routes>
+  </Router>
   );
 }
 

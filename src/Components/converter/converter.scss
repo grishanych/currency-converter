@@ -1,0 +1,40 @@
+.main-form-converter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 1200px;
+  border: 2px solid rgb(241, 171, 171);
+  background-image: url(https://previews.123rf.com/images/bluebay/bluebay1506/bluebay150600014/40899611-stock-exchange-background.jpg);
+
+  .form-row {
+    border: 3px solid rebeccapurple;
+    background-color: rgb(155, 255, 124);
+    text-align: center;
+    font-size: 25px;
+    width: 400px;
+
+    .swap {
+      cursor: pointer;
+    }
+  }
+
+  .form-inline-input{
+      width: 300px;
+      height: 35px;
+  }
+
+  .form-inline-select{
+      color: red;
+      font-size: 15px;
+      height: 40px;
+  }
+
+  .showExchange{
+      margin-top: 20px;
+      background-color:red;
+      color: #fff;
+      font-size: 20px;
+  }
+}
