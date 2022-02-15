@@ -1,0 +1,19 @@
+.main-form-converter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 600px;
+    border: 2px solid rgb(241, 171, 171);
+
+.form-row {
+    border: 3px solid rebeccapurple;  
+    background-color: rgb(155, 255, 124);
+    text-align: center;
+
+.swap{
+    cursor: pointer;
+}
+}
+}
