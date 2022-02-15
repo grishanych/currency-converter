@@ -1,0 +1,22 @@
+.main-exchange {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 1920px;
+
+  .ant-table-thead .ant-table-cell {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .ant-table-cell {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .showExchange {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    font-size: 18px;
+  }
+}
