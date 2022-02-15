@@ -1,16 +1,20 @@
-import "./App.css";
-import Converter from "./Components/converter/converter";
-import Exchange from "./Components/exchange/exchange";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+const Converter = lazy(() => import("./Components/converter/converter"));
+const Exchange = lazy(() => import("./Components/exchange/exchange"));
 
 function App() {
   return (
-<Router>
-      <Routes>
-        <Route path="/" element={<Converter />} />
-        <Route path="/exchange" element={<Exchange />} />
-      </Routes>
-  </Router>
+    <Router>
+      <Suspense fallback={<div>Завантаження...</div>}>
+        <Routes>
+          <Route path="/" element={<Converter />} />
+          <Route path="/exchange" element={<Exchange />} />
+          <Route component={() => <div>Not found this Route</div>} />
+        </Routes>
+      </Suspense>
+    </Router>
   );
 }
 

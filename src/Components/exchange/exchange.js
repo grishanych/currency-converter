@@ -1,55 +1,69 @@
 import React, { Component } from "react";
+import { Table } from "antd";
+import "antd/dist/antd.css";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { Table, Form, Popconfirm, Typography, message } from "antd";
 import { Link } from "react-router-dom";
+import "./exchange.scss";
+import { SketchOutlined } from "@ant-design/icons";
 
-const Exchange = () => {
-  const [data, setData] = useState([]);
-
-  const getData = () => {
-    axios
-      .get(
-        "http://api.exchangeratesapi.io/v1/latest?access_key=4905b0e100e11aab901b2145ef2068ef&format=1"
-      )
-      .then((response) => {
-        setData(response.data);
-        console.log(this.setData);
-      });
+class Exchange extends Component {
+  state = {
+    currencies: [],
+    date: new Date().toLocaleString(),
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  componentDidMount() {
+    axios
+      .get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json")
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({
+          currencies: data,
+          USD: data.txt,
+        });
+      });
+  }
 
-  const columns = [
-    {
-      title: "Дата",
-      dataIndex: "date",
-      width: "50%",
-    },
-    {
-      title: "Валюта",
-      dataIndex: "rates",
-      width: "50%",
-      editable: true,
-    },
-  ];
+  render() {
+    const { currencies, date } = this.state;
 
-  return (
-    <div>
-      <Form>
-        <Table
-          bordered
-            // dataSource={this.getData}
-          columns={columns}
-        />
-      </Form>
-      <Link to="/">
-        <button className="showExchange">Повернутись в обмінник валют</button>
-      </Link>
-    </div>
-  );
-};
+    const columns = [
+      {
+        title: "Код літерний",
+        dataIndex: "cc",
+        key: "cc",
+      },
+      {
+        title: "Назва валюти",
+        dataIndex: "txt",
+        key: "txt",
+      },
+
+      {
+        title: "Курс в грн",
+        dataIndex: "rate",
+        key: "rate",
+      },
+      {
+        title: "Дата",
+        dataIndex: "exchangedate",
+        key: "exchangedate",
+      },
+    ];
+
+    return (
+      <div className="main-exchange">
+        <Link to="/">
+          <button className="showExchange">
+            <SketchOutlined /> перейти в обмінник валют <SketchOutlined />
+          </button>
+        </Link>
+        <h1>{`Офіційний курс гривні щодо іноземних валют станом на ${date}`}</h1>
+
+        <Table dataSource={currencies} columns={columns} />
+      </div>
+    );
+  }
+}
 
 export default Exchange;

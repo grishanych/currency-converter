@@ -1,16 +1,16 @@
+import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./converter.scss";
 
 class Converter extends Component {
   state = {
-    currencies: ["USD", "EUR", "UAH", "AUD", "SGD", "PHP"],
+    currencies: ["EUR", "USD", "UAH"],
     base: "EUR",
     amount: "",
     convertTo: "UAH",
     result: "",
     date: "",
-    new111: [],
   };
 
   handleSelect = (event) => {
@@ -36,18 +36,23 @@ class Converter extends Component {
     if (amount === isNaN) {
       return;
     } else {
-      fetch(
-        `http://api.exchangeratesapi.io/v1/latest?access_key=4905b0e100e11aab901b2145ef2068ef&format=1?base=${this.state.base}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          const date = data.date;
-          const result = (data.rates[this.state.convertTo] * amount).toFixed(4);
-          this.setState({
-            result,
-            date,
-          });
+      axios
+        .get(
+          "http://api.exchangeratesapi.io/v1/latest?access_key=4905b0e100e11aab901b2145ef2068ef&format=1?base=${this.state.base}"
+        )
+        .then((response) => {
+          const date = response.data.date;
+          const result = (
+            response.data.rates[this.state.convertTo] * amount
+          ).toFixed(4);
+          const currencyAr = ["EUR"];
+          for (const key in response.data.rates) {
+            currencyAr.push(key);
+          }
+          this.setState({ currencies: currencyAr, result, date });
+        })
+        .catch((err) => {
+          console.log("Opps", err.message);
         });
     }
   };
