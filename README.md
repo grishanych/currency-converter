@@ -50,7 +50,13 @@ $ npm install
 2. Run `npm i` to install all required packages.
 4. Run `npm start` to run project.
 5. Open http://localhost:3000 to view it in the browser.
+
+
+---
 or
+
+
+---
 1. Open terminal.
 2. Run `npm i -g webpack webpack-cli` to download webpack.
 3. Run `npm i` to install all required packages.
