@@ -11,7 +11,33 @@ class Converter extends Component {
     convertTo: "UAH",
     result: "",
     date: "",
+    countryName: "",
+    city: "",
+    currency: "",
   };
+
+  getGeoInfo = () => {
+    axios
+      .get("https://ipapi.co/json/")
+      .then((response) => {
+        let data = response.data;
+        this.setState({
+          countryName: data.country_name,
+          city: data.city,
+          currency: data.currency,
+        });
+        alert(
+          `Ваша країна: ${this.state.countryName}\nВаше місто: ${this.state.city}\nВалюта: ${this.state.currency}`,
+          3000
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  componentDidMount() {
+    this.getGeoInfo();
+  }
 
   handleSelect = (event) => {
     this.setState(
@@ -72,7 +98,17 @@ class Converter extends Component {
   };
 
   render() {
-    const { currencies, base, amount, convertTo, result, date } = this.state;
+    const {
+      currencies,
+      base,
+      amount,
+      convertTo,
+      result,
+      date,
+      countryName,
+      city,
+      currency,
+    } = this.state;
 
     return (
       <div className="main-form-converter">
@@ -83,7 +119,6 @@ class Converter extends Component {
           {result} {convertTo}
         </h1>
         <h2>станом на {date}</h2>
-
         <div className="form-row">
           <div className="row-input">
             <p>Міняю</p>
