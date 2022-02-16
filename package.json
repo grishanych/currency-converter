@@ -18,9 +18,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "webpack",
+    "devWebpack": "webpack serve --mode development",
+    "buildWebpack": "webpack --mode production"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +43,21 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.49.7"
-  }
+    "sass": "^1.49.7",
+    "webpack": "^5.69.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "description": "<h1 align=\"center\">Сurrency exchange </h1>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grishanych/currency-converter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grishanych/currency-converter/issues"
+  },
+  "homepage": "https://github.com/grishanych/currency-converter#readme"
 }
