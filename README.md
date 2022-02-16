@@ -1,70 +1,183 @@
-# Getting Started with Create React App
+<h1 align="center">Сurrency exchange </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+---
+- [Installation](#installation)
+  - [Required to install](#Required-to-install)
+  - [Clone](#Clone)
+  - [Setup](#Setup)
+  - [How to run local](#How-to-run-local)
+  - [How to run Docker](#How-to-run-Docker)
+- [Usage](#Usage)
+  - [How to run tests](#How-to-run-tests)
+- [Documentation](#Documentation)
+  - [Rules and guidelines](#Rules-and-guidelines)
+  - [Testing](#Testing)
+- [Project deploy](#project-deploy)
+- [Contributing](#contributing)
+  - [git flow](#git-flow)
+  - [issue flow](#git-flow)
+- [FAQ](#faq)
+- [Support](#support)
+- [License](#license)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- All the `code` required to get started
+- Images of what it should look like
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Required to install
 
-### `npm test`
+- NodeJS (16.13.2)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Clone
 
-### `npm run build`
+- Clone this repo to your local machine using `https://github.com/grishanych/currency-converter.git`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> install npm packages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+$ npm install
+```
 
-### `npm run eject`
+### How to run local
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Open terminal.
+2. Run `npm i -g webpack webpack-cli` to download webpack.
+3. Run `npm i` to install all required packages.
+4. Run `npm run devWebpack` to install all required packages.
+5. Open http://localhost:8080 to view it in the browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### How to run Docker
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### How to run tests
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run unit test open terminal and run `npm run test` in it.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Documentation
 
-### Analyzing the Bundle Size
+### Rules and guidelines
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Testing
 
-### Advanced Configuration
+#### Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Order of testing components:
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##### Don’t test:
 
-### `npm run build` fails to minify
+- third-party libraries
+- constants
+- static css styles
+- related components (test only one specific component at the specific moment of time)
+- How to test:
+- testing using snapshots (actual ui)
+- testing logic of component (dynamic)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+##### What to test in components:
+
+
+
+
+
+## Project Deploy
+
+#### Deploy Сlient part: https://
+
+#### Deploy Admin Part: https://
+
+---
+
+## Contributing
+
+#### Here is our [wiki](https://), where you can find guide about project running.
+
+---
+
+Before sending any pull request, please discuss requirements/changes to be implemented using an existing issue or by creating a new one. All pull requests should be done into `main` branch.
+
+
+---
+
+### Git flow
+
+We have **main** and **develop** branches.  
+All **feature** branches must be merged into [main](https://github.com/grishanych/currency-converter/tree/develop) branch!!!
+
+
+#### Step 1
+
+- **Option 1**
+
+  - 👯 Clone this repo to your local machine using `https://github.com/grishanych/currency-converter.git`
+
+- **Option 2**
+
+  - create new branch from development branch
+
+#### Step 2
+
+- add some commits to your new branch
+
+#### Step 3
+
+- 🔃 Create a new pull request using <a href="https://github.com/grishanych/currency-converter/compare" target="_blank"github.com/grishanych/currency-converter</a>.
+
+---
+
+### Issue flow
+
+#### Step 1
+
+-go to [!issues](https://github.com/grishanych/currency-converter/issues) and click `New issue` button
+
+#### Step 2
+
+when creating [issue](https://github.com/grishanych/currency-converter/issues/new) you should add name of the issue, description, choose assignee, label, project. If issue is a `User Story` you should link it with corresponding tasks, and corresponding tasks should be linked to issue.
+
+#### Step 3
+
+if issue is in work it should be placed in proper column on dashboard according to its status.
+
+---
+
+## Teams
+
+### Development team
+[![@Grygorii Nych](https://avatars.githubusercontent.com/u/32013116?s=100&v=4)](https://github.com/grishanych)
+
+## FAQ
+
+- **How do I do _specifically_ so and so?**
+  - No problem! Just do this.
+
+---
+
+## Support
+
+---
+
+#### License
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2021 © <a href="https://softserve.academy/" target="_blank"> SoftServe IT Academy</a>.
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+
